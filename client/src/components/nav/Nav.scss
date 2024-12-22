@@ -1,0 +1,97 @@
+$base-bg-color: #0E5A2A;
+
+.navbar {
+  width: 100vw;
+  box-sizing: border-box;
+  .container-fluid {
+    display: flex;
+    align-items: center;
+    height: 30px;
+
+    .navbar-brand {
+      font-size: 14px;
+
+    }
+
+    @media (min-width: 600px){
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+    }
+    
+    .navbar-toggler {
+      border-color: $base-bg-color; 
+      
+      padding: 4px 8px;
+    
+      .navbar-toggler-icon {
+        background-image: none;
+    
+        position: relative;
+        width: 24px;  
+        height: 2px;  
+        top: -2px;
+        background-color: $base-bg-color; 
+    
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          width: 24px;
+          height: 2px;
+          background-color: $base-bg-color; 
+        }
+    
+        &::before {
+          top: -8px; 
+        }
+    
+        &::after {
+          top: 8px; 
+        }
+      }
+    
+      &:hover {
+        .navbar-toggler-icon,
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after {
+          background-color: $base-bg-color;
+        }
+      }
+    }
+    
+
+    .navbar-toggler:focus {
+      outline: none; 
+      box-shadow: 0 0 0 2px  $base-bg-color;
+    }
+
+    .navbar-toggler:active {
+      box-shadow: 0 0 5px 2px  $base-bg-color;
+    }
+
+    .collapse {
+        gap: 30px;
+        z-index: 2;
+        background-color: #fff;
+       button {
+        padding: 14px;
+        border-radius: 30px;
+        border-color: $base-bg-color;
+        background-color: $base-bg-color;
+
+        &:active {
+          border-color: $base-bg-color;
+        }
+       }
+    }
+  }
+
+  @media (min-width: 600px){
+    height: 80px;
+    display: flex;
+    margin-top: -10px;
+  }
+}
+
