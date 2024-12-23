@@ -1,7 +1,7 @@
 $base-bg-color: #0E5A2A;
 
 .navbar {
-  width: 100vw;
+  max-width: 100vw;
   box-sizing: border-box;
   .container-fluid {
     display: flex;
