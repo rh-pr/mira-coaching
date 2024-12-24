@@ -4,7 +4,7 @@ import Offers from "../components/home/Offers";
 
 function Home() {
   return (
-    <div className='home'>
+    <div className='home' lang="de">
       <Main />
       <Offers />
     </div>

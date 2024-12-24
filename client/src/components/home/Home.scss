@@ -2,6 +2,7 @@ $base-bg-color: #0E5A2A;
 $base-text-color: #6B077A;
 $base-font-headers: 'Sansita';
 $base-font: 'Roboto';
+$sarina-font: 'Sarina';
 
 .main {
     display: flex;
@@ -80,7 +81,49 @@ $base-font: 'Roboto';
     }
 
     .offers-cards {
+       width: 100%;
+       padding: 0 20px;
+       display: flex;
+       justify-content: space-around;
+       padding-top: 20px;
        
+       .offer-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            width: 120px;
+            height: 280px;
+            position: relative;
+
+            img {
+                width: 110px;
+                height: 110px;
+                border-radius: 100%;
+                box-shadow: 0 4px 20px  rgb(0, 0, 0, .25);
+            }
+
+            h3 {
+                width: 90%;
+                font-family: $base-font-headers, sans-serif;
+                color: $base-bg-color;
+                font-style: 1rem;
+                font-weight: 700;
+                hyphens: auto;
+                text-align: center;
+            }
+
+            p {
+                font-family: $sarina-font, sans-serif;
+                font-style: italic;
+                color: $base-text-color;
+                font-weight: 500;
+                font-size: 0.8rem;
+                position: absolute;
+                bottom: 2px;
+                right: 2px;
+            }
+       }
     }
 
 }
@@ -119,6 +162,29 @@ $base-font: 'Roboto';
             width: 50%;
             font-size: 1.6rem;
         }
+
+       .offers-cards {
+
+        .offer-card {
+        
+            gap: 30px;
+            width: 190px;
+            height: 400px;
+
+            img {
+                width: 180px;
+                height: 180px;
+            }
+
+            h3 {
+                font-style: 2.2rem;
+            }
+
+            p {
+                font-size: 1.5rem;
+            }
+       }
+       }
     }
 }
 
@@ -165,5 +231,31 @@ $base-font: 'Roboto';
             width: 60%;
             font-size: 2rem;
         }
+
+       .offers-cards {
+
+        .offer-card {
+            gap: 30px;
+            min-width: 260px;
+            max-width: 300px;
+            height: 500px;
+
+            img {
+                min-height: 250px;
+                min-width: 250px;
+                max-width: 270px;
+                max-height: 270px;
+            }
+
+            h3 {
+                font-style: 2rem;
+            }
+
+            p {
+                font-size: 1.5rem;
+
+            }
+       }
+       }
     }
 }
