@@ -4,6 +4,18 @@ $base-font-headers: 'Sansita';
 $base-font: 'Roboto';
 $sarina-font: 'Sarina';
 
+@mixin cardBtn {
+    font-family: $sarina-font, sans-serif;
+    font-style: italic;
+    color: $base-text-color;
+    font-weight: 500;
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    cursor: pointer;
+}
+
 .main {
     display: flex;
     width: 100%;
@@ -93,37 +105,106 @@ $sarina-font: 'Sarina';
             align-items: center;
             gap: 30px;
             width: 120px;
-            height: 280px;
+            height: 230px;
             position: relative;
+            transition: 1s ease-in-out;
+            transform-style: preserve-3d;
+            perspective: 10000px;
 
-            img {
-                width: 110px;
-                height: 110px;
-                border-radius: 100%;
-                box-shadow: 0 4px 20px  rgb(0, 0, 0, .25);
+            .inner {
+                height: 100%;
+                width: 100%;
+                transition: 1s ease-in-out;
+                backface-visibility: hidden;
+
+                img {
+                    width: 110px;
+                    height: 110px;
+                    border-radius: 100%;
+                    box-shadow: 0 4px 20px  rgb(0, 0, 0, .25);
+                }
+    
+                h3 {
+                    width: 90%;
+                    font-family: $base-font-headers, sans-serif;
+                    color: $base-bg-color;
+                    font-style: 1rem;
+                    font-weight: 700;
+                    hyphens: auto;
+                    text-align: center;
+                }
+    
+                p {
+                  @include cardBtn();
+                }
+
+
+    
+                &:hover {
+                    padding-top: 2px;
+                    border: 1px solid gray;
+                    border-radius: 30px;
+                    box-shadow: 0 0 4px 4px rgb(14, 90, 42, .35);
+                }
             }
 
-            h3 {
-                width: 90%;
-                font-family: $base-font-headers, sans-serif;
-                color: $base-bg-color;
-                font-style: 1rem;
-                font-weight: 700;
-                hyphens: auto;
-                text-align: center;
+            .active-back {
+                transform: rotateY(180deg);
             }
 
-            p {
-                font-family: $sarina-font, sans-serif;
-                font-style: italic;
-                color: $base-text-color;
-                font-weight: 500;
-                font-size: 0.8rem;
+            .back {
+                width: 100%;
+                height: 100%;
+                border: 2px solid $base-bg-color;
+                border-radius: 20px;
                 position: absolute;
-                bottom: 2px;
-                right: 2px;
+                top: 0;
+                padding: 10px;
+                box-shadow: 0 0 4px 4px rgb(107, 7, 122,0.35);
+                backface-visibility: hidden;
+                transform: rotateY('`180deg');
+                transition: 1s ease-in-out;
+
+              
+                .ofers-list {
+                    display: flex;
+                    align-items: center;
+                    gap: 2px;
+                    font-family: $base-font-headers, sans-serif;
+                    font-weight: bold;
+                    font-size: 0.5rem;
+                    hyphens: auto;
+
+
+                    .circle {
+                        border-radius: 100%;
+                        background-color: $base-text-color;
+                        width: 4px;
+                        height: 4px;
+                    }
+
+                    .hideMore {
+                        @include cardBtn();
+                    }
+                }
+
+        
             }
+
+            .deactive-back {
+                transform: rotateY(180deg);
+            }
+
+           
        }
+
+       .offer-detaild {
+        transform: rotateY(180deg);
+       }
+    }
+
+    .active-back {
+        transform: rotateY('180deg');
     }
 
 }
@@ -169,21 +250,44 @@ $sarina-font: 'Sarina';
         
             gap: 30px;
             width: 190px;
-            height: 400px;
+            height: 360px;
 
-            img {
-                width: 180px;
-                height: 180px;
-            }
+           .inneer {
+                img {
+                    width: 180px;
+                    height: 180px;
+                }
 
-            h3 {
-                font-style: 2.2rem;
-            }
+                h3 {
+                    font-style: 2.2rem;
+                }
 
-            p {
-                font-size: 1.5rem;
+                p {
+                    font-size: 1.5rem;
+                }
+           }
+
+           .back {
+                border: 2px solid $base-bg-color;
+                padding: 20px;
+            
+                .ofers-list {
+                
+                    gap: 4px;
+                    padding-bottom: 2px;
+                
+                    font-size: 1rem;
+
+
+                    .circle {
+                        width: 4px;
+                        height: 4px;
+                    }
+
+                }
+    
             }
-       }
+        }
        }
     }
 }
@@ -240,20 +344,46 @@ $sarina-font: 'Sarina';
             max-width: 300px;
             height: 500px;
 
-            img {
-                min-height: 250px;
-                min-width: 250px;
-                max-width: 270px;
-                max-height: 270px;
+            .inner {
+                img {
+                    min-height: 250px;
+                    min-width: 250px;
+                    max-width: 270px;
+                    max-height: 270px;
+                }
+    
+                h3 {
+                    font-style: 2rem;
+                }
+    
+                p {
+                    font-size: 1.5rem;
+    
+                }
             }
 
-            h3 {
-                font-style: 2rem;
-            }
+            .back {
+                border: 4px solid $base-bg-color;
+                padding: 30px;
+            
+                .ofers-list {
+                
+                    gap: 10px;
+                    padding-bottom: 2px;
+                
+                    font-size: 1.3rem;
 
-            p {
-                font-size: 1.5rem;
 
+                    .circle {
+                        width: 10px;
+                        height: 10px;
+                    }
+
+                    .hideMore {
+                        font-size: 1.5rem;
+                    }
+                }
+    
             }
        }
        }

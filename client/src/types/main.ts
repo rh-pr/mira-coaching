@@ -1,4 +1,5 @@
 export type OffersCardType = {
     img: string,
-    name: string
+    name: string,
+    offers: string[]
 }
