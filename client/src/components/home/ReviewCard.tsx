@@ -15,9 +15,7 @@ function ReviewCard({rev}: {rev: ReviewType}) {
             <span> {rev.lname}</span>
         </div>
         <div className='rev-cont'>
-            <span className='mark'>"</span>
-            <p className='cont'>{rev.content}</p>
-            <span className='mark mark-end'>"</span>
+            <p>{rev.content}</p>
         </div>
     </div>
   )

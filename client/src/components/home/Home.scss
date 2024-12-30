@@ -302,35 +302,41 @@ $sarina-font: 'Sarina';
         }
 
         .rev-cont {
-          display: flex;
-          padding: 2px 2px;
-          max-height: 70%;
-          font-size: 0.7rem;
-          position: relative;
-          font-weight: 500;
+            display: flex;
+            padding: 2px 2px;
+            max-height: 46%;
+            font-size: 0.7rem;
+            position: relative;
+            font-weight: 500;
+            hyphens: auto;
 
-          .cont {
-            padding-top: 2px;
-            padding-right: 4px;
-            height: 100%;
-            display: -webkit-box; 
-            -webkit-line-clamp: 4; 
-            -webkit-box-orient: vertical;
-            overflow: hidden; 
-            text-overflow: ellipsis; 
-            word-wrap: break-word;
-            flex-grow: 1;
-          }
+            p {
+                padding: 2px 6px 0px 6px;
+                height: 100%;
+                display: -webkit-box; 
+                -webkit-line-clamp: 4; 
+                -webkit-box-orient: vertical;
+                overflow: hidden; 
+                text-overflow: ellipsis; 
+                word-wrap: break-word;
 
-          .mark {
-           background-color: transparent;
-          }
+                &::before {
+                    content: '"';
+                    margin-left: -4px;
+                    color: $base-bg-color;
+                    font-size: 1rem;
+                }
 
-          .mark-end {
-            position: absolute;
-            bottom: calc(10px + 0.5rem);
-            right: 4px;
-          }
+                &::after {
+                    content: '"';
+                    color: $base-bg-color;
+                    font-size: 1rem;
+                    position: absolute;
+                    bottom: 6px;
+                    right: 4px;
+                    // transform: translateY(-20%); 
+                }
+            }
 
         }
     }
