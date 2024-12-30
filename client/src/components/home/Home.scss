@@ -248,6 +248,94 @@ $sarina-font: 'Sarina';
     }
 }
 
+
+.reviews-small {
+    width: 100%;
+    padding: 100px 10px 0 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+
+    .review-card {
+        border-radius: 30px;
+        border: 2px solid $base-bg-color;
+        width: 30vw;
+        height: 200px;
+        position: relative;
+        padding-top: 10px;
+
+        .emoji {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            font-size: 2rem;
+            position: absolute;
+            top: -25px;
+       }
+
+        .stars {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+            padding-right: 10px;
+            padding-top: 20px;
+            padding-bottom: 10px;
+
+
+            p {
+                color: $base-text-color;
+                font-weight: bold;
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+        .initials {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: $base-text-color;
+            font-weight: bold;
+            font-family: $base-font-headers, serif;
+            font-size: 1rem;
+            line-height: 1.2;
+        }
+
+        .rev-cont {
+          display: flex;
+          padding: 2px 2px;
+          max-height: 70%;
+          font-size: 0.7rem;
+          position: relative;
+          font-weight: 500;
+
+          .cont {
+            padding-top: 2px;
+            padding-right: 4px;
+            height: 100%;
+            display: -webkit-box; 
+            -webkit-line-clamp: 4; 
+            -webkit-box-orient: vertical;
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            word-wrap: break-word;
+            flex-grow: 1;
+          }
+
+          .mark {
+           background-color: transparent;
+          }
+
+          .mark-end {
+            position: absolute;
+            bottom: calc(10px + 0.5rem);
+            right: 4px;
+          }
+
+        }
+    }
+}
+
 @media (min-width: 768px){
     .main {
         height:  auto;
@@ -455,7 +543,7 @@ $sarina-font: 'Sarina';
     
     .aboutMe {
      
-        padding: 300px 50px 0 50px;
+        padding: 200px 50px 0 50px;
         // gap: 20px;
     
         figure {
