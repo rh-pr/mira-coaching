@@ -56,7 +56,7 @@ export const reviews = [
         note:3,
         fname: 'First Name',
         lname: 'Last Name',
-        content: 'is a long established fact that a reader will be distracted by the readat, and a search for will uncover many web sites still in their infancy psum that a reader will be distracted by the readat, and a search for will uncover many web sites still in their infancy psum'
+        content: 'is a long established fact that a reader will be distracted by the readat, and a search for will uncover many web sites still in their infancy psum that a reader will be distracted by the readat, and a search for will uncover many web sites still in their infancy psum hat a reader will be distracted by the readat, and a search for will uncover many web sites still in their infancy psum that a reader will be distracted by the readat, and a search for will uncover many web sites still'
     }
 ];
 
