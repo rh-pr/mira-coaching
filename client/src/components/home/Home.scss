@@ -801,15 +801,17 @@ $sarina-font: 'Sarina';
     }
 
     .contact {
-        height: 950px;
+        height: 1000px;
         padding: 20px 20px 0 10px;
-        // background-color: red;
     
        .form {
-            width: 66%;
+            width: 60%;
             padding: 0 12px;
             height: 90%;
             padding-left: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
     
             h3 {
                 width: 50%;
@@ -817,7 +819,7 @@ $sarina-font: 'Sarina';
                 padding-bottom: 50px;
             }
             form {
-                width: 50%;
+                width: 70%;
                 font-size: 1.2rem;
                 font-weight: 600;
                 gap: 16px;
@@ -852,7 +854,7 @@ $sarina-font: 'Sarina';
        }
     
         .figure {
-            width: 34%;
+            width: 40%;
             height: 90%;
             box-shadow: inset  20px 0 20px white;
     
