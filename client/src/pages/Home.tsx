@@ -4,7 +4,11 @@ import Offers from "../components/home/Offers";
 import AboutMe from "../components/home/AboutMe";
 import ReviewCard from "../components/home/ReviewCard";
 
+import formImg from '../assets/img/contact.jpg';
+
+
 import { reviews } from '../constants/main'
+import ContactForm from "../components/home/ContactForm";
 
 function Home() {
   return (
@@ -16,8 +20,15 @@ function Home() {
        {reviews[0] && <ReviewCard rev={reviews[0]} />}
        {reviews[1] && <ReviewCard rev={reviews[1]} />}
        {reviews[2] && <ReviewCard rev={reviews[2]} />}
-
       </div>
+      <div className="contact">
+        <div className="form">
+          <h3>Kontaktieren mit mir</h3>
+          <ContactForm />
+        </div>
+        <div className="figure"></div>
+      </div>
+      <div>dsjfkj</div>
     </div>
   )
 }
