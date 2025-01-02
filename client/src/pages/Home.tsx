@@ -4,7 +4,6 @@ import Offers from "../components/home/Offers";
 import AboutMe from "../components/home/AboutMe";
 import ReviewCard from "../components/home/ReviewCard";
 
-import formImg from '../assets/img/contact.jpg';
 
 
 import { reviews } from '../constants/main'
@@ -29,7 +28,6 @@ function Home() {
         </div>
         <div className="figure"></div>
       </div>
-      <div>dsjfkj</div>
     </div>
   )
 }

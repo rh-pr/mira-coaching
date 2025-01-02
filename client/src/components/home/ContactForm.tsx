@@ -1,8 +1,12 @@
-
-
 function ContactForm() {
+
+  const handleUserMsg = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    
+  }
   return (
-    <form className="">
+    <form className=""  onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleUserMsg(e)}>
       <label htmlFor="fname">Vorname</label>
       <input type="text" className="" id="fname" name="fname" />
       <label htmlFor="lname">Nachname</label>

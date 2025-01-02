@@ -18,10 +18,11 @@ $base-font: 'Roboto';
         padding: 0px;
         
 
-        .home {
+        .home, .reviews {
             width: 100vw;
             display: flex;
             flex-direction: column;
         }
+        
     }
 }
