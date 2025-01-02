@@ -251,10 +251,11 @@ $sarina-font: 'Sarina';
 
 .reviews-small {
     width: 100%;
-    padding: 100px 10px 0 10px;
+    padding: 100px 10px 80px 10px;
     display: flex;
     gap: 10px;
     justify-content: space-between;
+    position: relative;
 
     .review-card {
         border-radius: 10px;
@@ -340,6 +341,20 @@ $sarina-font: 'Sarina';
 
         }
     }
+
+    button {
+        position: absolute;
+        bottom: 0;
+        right: 20px;
+        border: none;
+        background-color: $base-bg-color;
+        color: white;
+        font-weight: 500;
+        font-style: 1rem;
+        padding: 10px 20px;
+        border-radius: 30px;
+
+    }
 }
 
 .contact {
@@ -380,10 +395,10 @@ $sarina-font: 'Sarina';
 
             textarea {
                 height: 100px;
-                overflow-y: scroll;
+                overflow-y: auto;
 
                 &:active, &:focus {
-                    outline: none;
+                    // outline: none;
                     border: 1px solid $base-text-color;
                 }
             }
@@ -391,7 +406,7 @@ $sarina-font: 'Sarina';
             button {
                 width: fit-content;
                 padding: 10px 30px;
-                border-radius: 10px;
+                border-radius: 30px;
                 border: none;
                 background-color: #0E5A2A;
                 color: white;

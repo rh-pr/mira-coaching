@@ -20,6 +20,7 @@ function Home() {
        {reviews[0] && <ReviewCard rev={reviews[0]} />}
        {reviews[1] && <ReviewCard rev={reviews[1]} />}
        {reviews[2] && <ReviewCard rev={reviews[2]} />}
+       <button className="nav-revs">Mehr...</button>
       </div>
       <div className="contact">
         <div className="form">
