@@ -393,6 +393,24 @@ $sarina-font: 'Sarina';
                 height: 30px;    
             }
 
+            select {
+                appearance: none;
+            }
+
+            .opened-select {
+                background: url('../../assets/img/up-min.svg');
+                background-repeat: no-repeat;
+                background-position: 99%;
+                padding-right: 10px;
+            }
+
+            .closed-select {
+                background: url('../../assets/img/down-min.svg');
+                background-repeat: no-repeat;
+                background-position: 99%;
+                padding-right: 10px;
+            }
+
             textarea {
                 height: 100px;
                 overflow-y: auto;
@@ -842,11 +860,28 @@ $sarina-font: 'Sarina';
                 input, select, textarea {
                     border-radius: 30px;
                     padding-left: 10px;
+                    padding-right: 10px;
                 }
+
     
                 input, select {
                     height: 46px;    
                 }
+
+                .opened-select {
+                    background: url('../../assets/img/up.svg');
+                    background-repeat: no-repeat;
+                    background-position: 99%;
+                    padding-right: 10px;
+                }
+    
+                .closed-select {
+                    background: url('../../assets/img/down.svg');
+                    background-repeat: no-repeat;
+                    background-position: 99%;
+                    padding-right: 10px;
+                }
+                
     
                 textarea {
                     height: 160px;
