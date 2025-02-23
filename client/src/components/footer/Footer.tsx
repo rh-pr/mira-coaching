@@ -4,7 +4,7 @@ function Footer() {
   return (
     <div className='footer' lang='de'>
       <div className='left'>
-       <p> Dein moment zur Verbesserung</p>
+       <p> Dein Moment zur Verbesserung</p>
       </div>
       <div className='right'>
         <div>

@@ -4,14 +4,21 @@ import Offers from "../components/home/Offers";
 import AboutMe from "../components/home/AboutMe";
 import ReviewCard from "../components/home/ReviewCard";
 
-
-
 import { reviews } from '../constants/main'
 import ContactForm from "../components/home/ContactForm";
+import { useContext } from "react";
+import { MainContext } from "../context/MainContext";
+import ResponseMsg from "../components/home/ResponseMsg";
 
 function Home() {
+  const context = useContext(MainContext);
+
   return (
     <div className='home' lang="de">
+      {/* {context?.sendedMsg && <ResponseMsg />} */}
+      <div className="modal-wrap">
+         {context?.sendedMsg && <ResponseMsg />}
+      </div>
       <Main />
       <Offers />
       <AboutMe />

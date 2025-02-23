@@ -23,4 +23,6 @@ export type KontaktDataType = {
 export type ContextType = {
     isWritingNewReview: boolean,
     setIsWritingNewReview: React.Dispatch<React.SetStateAction<boolean>>;
+    sendedMsg: boolean,
+    setSendedMsg: React.Dispatch<React.SetStateAction<boolean>>;
 }

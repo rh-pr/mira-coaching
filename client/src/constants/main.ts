@@ -26,7 +26,7 @@ export const profOffers = [
         name: 'Teambuilding',
         offers: [
             'Einzelberatung',
-            'Teans Beratung',
+            'Teams Beratung',
             'Kommunikation',
             'Führung',
             'Neue Arbeit',
