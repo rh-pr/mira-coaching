@@ -3,7 +3,7 @@ import clock from '../../assets/img/aboutMe.jpg';
 
 function AboutMe() {
   return (
-    <div className='aboutMe'>
+    <div className='aboutMe'  id='aboutMe'>
       <figure>
         <img src={clock} alt="aboutMe" />
       </figure>

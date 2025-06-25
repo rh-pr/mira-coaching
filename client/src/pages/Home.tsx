@@ -14,7 +14,7 @@ function Home() {
   const context = useContext(MainContext);
 
   return (
-    <div className='home' lang="de">
+    <div className='home' id="home" lang="de">
       {/* {context?.sendedMsg && <ResponseMsg />} */}
       <div className="modal-wrap">
          {context?.sendedMsg && <ResponseMsg />}
