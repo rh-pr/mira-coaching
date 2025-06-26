@@ -17,7 +17,7 @@ function ModalForm() {
     }
 
   return (
-    <div className="modal-form">
+    <div className="modal-form ">
         <form className=""  onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleReview(e)}>
             <label htmlFor="fname">Vorname</label>
             <input type="text" className="" id="fname" name="fname" />
@@ -29,7 +29,7 @@ function ModalForm() {
             <input type="text" className="" id="eventLoc" name="eventLoc" />
             <label htmlFor="inter">Teile deine Erfahrung</label>
             {/* <InputGroup> */}
-            <fieldset radioGroup="radio">
+            <fieldset radioGroup="radio" className="radio-group">
                 <input type="radio" name="radio" id="five" value={5} />
                 <label htmlFor="five">{emojies[4]}</label>
                 <input type="radio" name="radio" id="four" value={4} />
