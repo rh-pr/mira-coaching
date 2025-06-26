@@ -40,7 +40,7 @@ const controls = useAnimation();
        {reviews[2] && <ReviewCard rev={reviews[2]} />}
        <button className="nav-revs">Mehr...</button>
       </div>
-      <div className="contact">
+      <div className="contact" id="contact">
         <motion.div 
           ref={formRef}
           initial='hidden'
