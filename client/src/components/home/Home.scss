@@ -397,6 +397,7 @@ $sarina-font: 'Sarina';
     align-items: center;
     width: 100%;
     height: 600px;
+    margin-bottom: 20px;
 
    .form {
         width: 66%;
@@ -501,19 +502,25 @@ $sarina-font: 'Sarina';
         }
    }
 
-    .figure {
-        background-image: url('../../assets//img/contact.jpg');
-        background-position: center;
-        background-size: cover;
+    .figure-wrap {
         width: 34%;
         height: 90%;
+        background-color: red;
         overflow: hidden;
-        box-shadow: inset  20px 0 20px white;
-
-        img {
+        
+        .figure {
+            background-image: url('../../assets//img/contact.jpg');
+            background-position: center;
+            background-size: cover;
             width: 100%;
             height: 100%;
-            transform: scale(1.3);
+            box-shadow: inset  0 0 20px 20px white;
+            transition: all 1.5s;
+
+            &:hover {
+                transform: scale(1.5);
+                box-shadow: inset  0 0 100px 100px white;
+            }
         }
     }
 }
@@ -727,41 +734,44 @@ $sarina-font: 'Sarina';
     .contact {
         height: 860px;
 
-    .form {
-            width: 60%;
-            padding: 0 12px;
-            height: 90%;
+        .form {
+                width: 60%;
+                padding: 0 12px;
+                height: 90%;
 
-            h3 {
-                font-size: 1.6rem;
-                padding-bottom: 16px;
-            }
-            form {
-                font-size: 1.2rem;
-                gap: 16px;
+                h3 {
+                    font-size: 1.6rem;
+                    padding-bottom: 16px;
+                }
+                form {
+                    font-size: 1.2rem;
+                    gap: 16px;
 
-                .my-input-group {
+                    .my-input-group {
 
-                    input, select {
-                        height: 50px;    
+                        input, select {
+                            height: 50px;    
+                        }
+
+                        textarea {
+                            height: 160px;
+                        }
+
+                    }
+                    button {
+                        font-size: 1.5rem;
                     }
 
-                    textarea {
-                        height: 160px;
-                    }
+                
 
                 }
-                button {
-                    font-size: 1.5rem;
-                }
+        }
 
-            
-
-            }
-    }
-
-        .figure {
-            width:40%;
+        .figure-wrap {
+            width: 40%;
+            // .figure {
+            //     width:40%;
+            // }
         }
     }
 }
@@ -954,7 +964,7 @@ $sarina-font: 'Sarina';
     }
 
     .contact {
-        height: 1000px;
+        height:900px;
         padding: 20px 20px 0 10px;
     
        .form {
@@ -1023,10 +1033,9 @@ $sarina-font: 'Sarina';
             }
        }
     
-        .figure {
-            width: 40%;
-            height: 90%;
-            box-shadow: inset  20px 0 20px white;
+        .figure-wrap {
+             width: 40%;
+             height: 90%;
         }
     }
 }

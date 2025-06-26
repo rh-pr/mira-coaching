@@ -6,12 +6,24 @@ import ReviewCard from "../components/home/ReviewCard";
 
 import { reviews } from '../constants/main'
 import ContactForm from "../components/home/ContactForm";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { MainContext } from "../context/MainContext";
 import ResponseMsg from "../components/home/ResponseMsg";
 
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from "react-intersection-observer";
 function Home() {
   const context = useContext(MainContext);
+
+const controls = useAnimation();
+ const [imgRef, inView] = useInView({ triggerOnce: true })
+ const [formRef, inViewForm] = useInView({triggerOnce: true})
+
+ useEffect(() => {
+  if (inView || inViewForm) {
+    controls.start('visible')
+  }
+ }, [inView, controls, inViewForm])
 
   return (
     <div className='home' id="home" lang="de">
@@ -29,11 +41,38 @@ function Home() {
        <button className="nav-revs">Mehr...</button>
       </div>
       <div className="contact">
-        <div className="form">
+        <motion.div 
+          ref={formRef}
+          initial='hidden'
+          animate={controls}
+          variants={{
+            hidden: {opacity: 0, x: -100},
+            visible: {
+              opacity: 1,
+              x: 0,
+              transition: { duration: 1.5}
+            }
+
+          }}
+          className="form">
           <h3>Kontaktieren mit mir</h3>
           <ContactForm />
-        </div>
-        <div className="figure"></div>
+        </motion.div>
+        <motion.div
+          ref={imgRef}
+          initial='hidden'
+          animate={controls}
+          variants={{
+            hidden: { opacity: 0, x: 100 },
+            visible: {
+              opacity: 1,
+              x: 0,
+              transition: { duration: 1.5 }
+            }
+          }}
+          className="figure-wrap">
+          <div  className="figure"></div>
+        </motion.div>
       </div>
     </div>
   )
