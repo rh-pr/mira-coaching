@@ -28,7 +28,7 @@ function Nav() {
   }, []);
 
   useEffect(() => {
-    console.log('is', isActive)
+    
   })
 
   return (

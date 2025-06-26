@@ -64,6 +64,7 @@ $sarina-font: 'Sarina';
             width: 50%;
             height: 30vh;
             overflow-x: hidden;
+            overflow-y: hidden;
 
             img {
                 width: 110%;
@@ -114,110 +115,112 @@ $sarina-font: 'Sarina';
        justify-content: space-around;
        padding-top: 20px;
        
-       .offer-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            width: 120px;
-            height: 230px;
-            position: relative;
-            transition: 1s ease-in-out;
-            transform-style: preserve-3d;
-            perspective: 10000px;
-           
-
-            .inner {
-                height: 100%;
-                width: 100%;
-                text-align: center;
+       .offer-wrap {
+            .offer-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                width: 120px;
+                height: 230px;
+                position: relative;
                 transition: 1s ease-in-out;
-                backface-visibility: hidden;
-                border-radius: 30px;
+                transform-style: preserve-3d;
+                perspective: 10000px;
+            
 
-                img {
-                    width: 110px;
-                    height: 110px;
-                    border-radius: 100%;
-                    box-shadow: 0 4px 20px  rgb(0, 0, 0, .25);
-                }
-    
-                h3 {
-                    width: 90%;
-                    font-family: $base-font-headers, sans-serif;
-                    color: $base-bg-color;
-                    font-style: 1rem;
-                    font-weight: 700;
-                    hyphens: auto;
+                .inner {
+                    height: 100%;
+                    width: 100%;
                     text-align: center;
-                }
-    
-                p {
-                  @include cardBtn();
-                }
-
-
-    
-                &:hover {
-                    padding-top: 2px;
-                    border: 1px solid gray;
+                    transition: 1s ease-in-out;
+                    backface-visibility: hidden;
                     border-radius: 30px;
-                    box-shadow: 0 0 4px 4px rgb(14, 90, 42, .35);
-                }
-            }
 
-            .active-back {
-                transform: rotateY(180deg);
-            }
-
-            .back {
-                width: 100%;
-                height: 100%;
-                border: 2px solid $base-bg-color;
-                border-radius: 20px;
-                position: absolute;
-                top: 0;
-                padding: 10px;
-                box-shadow: 0 0 4px 4px rgb(107, 7, 122,0.35);
-                backface-visibility: hidden;
-                transform: rotateY('`180deg');
-                transition: 1s ease-in-out;
-
-              
-                .ofers-list {
-                    display: flex;
-                    align-items: center;
-                    gap: 2px;
-                    font-family: $base-font-headers, sans-serif;
-                    font-weight: bold;
-                    font-size: 0.5rem;
-                    hyphens: auto;
-
-
-                    .circle {
+                    img {
+                        width: 110px;
+                        height: 110px;
                         border-radius: 100%;
-                        background-color: $base-text-color;
-                        width: 4px;
-                        height: 4px;
+                        box-shadow: 0 4px 20px  rgb(0, 0, 0, .25);
+                    }
+        
+                    h3 {
+                        width: 90%;
+                        font-family: $base-font-headers, sans-serif;
+                        color: $base-bg-color;
+                        font-style: 1rem;
+                        font-weight: 700;
+                        hyphens: auto;
+                        text-align: center;
+                    }
+        
+                    p {
+                    @include cardBtn();
                     }
 
-                    .hideMore {
-                        @include cardBtn();
-                    }
-                }
 
         
+                    &:hover {
+                        padding-top: 2px;
+                        border: 1px solid gray;
+                        border-radius: 30px;
+                        box-shadow: 0 0 4px 4px rgb(14, 90, 42, .35);
+                    }
+                }
+
+                .active-back {
+                    transform: rotateY(180deg);
+                }
+
+                .back {
+                    width: 100%;
+                    height: 100%;
+                    border: 2px solid $base-bg-color;
+                    border-radius: 20px;
+                    position: absolute;
+                    top: 0;
+                    padding: 10px;
+                    box-shadow: 0 0 4px 4px rgb(107, 7, 122,0.35);
+                    backface-visibility: hidden;
+                    transform: rotateY('`180deg');
+                    transition: 1s ease-in-out;
+
+                
+                    .ofers-list {
+                        display: flex;
+                        align-items: center;
+                        gap: 2px;
+                        font-family: $base-font-headers, sans-serif;
+                        font-weight: bold;
+                        font-size: 0.5rem;
+                        hyphens: auto;
+
+
+                        .circle {
+                            border-radius: 100%;
+                            background-color: $base-text-color;
+                            width: 4px;
+                            height: 4px;
+                        }
+
+                        .hideMore {
+                            @include cardBtn();
+                        }
+                    }
+
+            
+                }
+
+                .deactive-back {
+                    transform: rotateY(180deg);
+                }
+
+            
             }
 
-            .deactive-back {
+            .offer-detaild {
                 transform: rotateY(180deg);
             }
-
-           
-       }
-
-       .offer-detaild {
-        transform: rotateY(180deg);
        }
     }
 
@@ -281,14 +284,23 @@ $sarina-font: 'Sarina';
         height: 200px;
         position: relative;
         padding-top: 10px;
+        transition-duration: 1s;
 
-        .emoji {
+         &:hover {
+            box-shadow: inset 4px 4px 20px rgb(9, 48, 9), 2px 2px 10px white, 4px 4px 20px rgb(13, 30, 13);
+            transform: scale(1.05);
+            
+        }
+
+       .emoji-wrap {
+         .emoji {
             width: 100%;
             display: flex;
             justify-content: center;
             font-size: 2rem;
             position: absolute;
             top: -25px;
+         }
        }
 
         .stars {
@@ -589,7 +601,8 @@ $sarina-font: 'Sarina';
 
        .offers-cards {
 
-        .offer-card {
+        .offer-wrap {
+            .offer-card {
         
             gap: 30px;
             width: 190px;
@@ -631,6 +644,7 @@ $sarina-font: 'Sarina';
                 }
     
             }
+            }
         }
        }
     }
@@ -664,9 +678,11 @@ $sarina-font: 'Sarina';
         border-radius: 2 !important;
         height: 400px;
 
-        .emoji {
+       .emoji-wrap {
+         .emoji {
             font-size: 3rem !important;
             top: -40px !important;
+       }
        }
 
         .stars {
@@ -797,54 +813,56 @@ $sarina-font: 'Sarina';
        .offers-cards {
         overflow: hidden;
 
-        .offer-card {
-            gap: 30px;
-            min-width: 300px;
-            max-width: 400px;
-            height: 500px;
+        .offer-wrap {
+            .offer-card {
+                gap: 30px;
+                min-width: 300px;
+                max-width: 400px;
+                height: 500px;
 
-            .inner {
-                img {
-                    min-height: 250px;
-                    min-width: 250px;
-                    max-width: 270px;
-                    max-height: 270px;
-                }
-    
-                h3 {
-                    font-style: 2rem;
-                }
-    
-                p {
-                    font-size: 1.5rem;
-    
-                }
-            }
-
-            .back {
-                border: 4px solid $base-bg-color;
-                padding: 30px;
-            
-                .ofers-list {
-                
-                    gap: 10px;
-                    padding-bottom: 2px;
-                
-                    font-size: 1.3rem;
-
-
-                    .circle {
-                        width: 10px;
-                        height: 10px;
+                .inner {
+                    img {
+                        min-height: 250px;
+                        min-width: 250px;
+                        max-width: 270px;
+                        max-height: 270px;
                     }
-
-                    .hideMore {
+        
+                    h3 {
+                        font-style: 2rem;
+                    }
+        
+                    p {
                         font-size: 1.5rem;
+        
                     }
                 }
-    
+
+                .back {
+                    border: 4px solid $base-bg-color;
+                    padding: 30px;
+                
+                    .ofers-list {
+                    
+                        gap: 10px;
+                        padding-bottom: 2px;
+                    
+                        font-size: 1.3rem;
+
+
+                        .circle {
+                            width: 10px;
+                            height: 10px;
+                        }
+
+                        .hideMore {
+                            font-size: 1.5rem;
+                        }
+                    }
+        
+                }
             }
-       }
+        }
        }
     }
 
@@ -881,10 +899,13 @@ $sarina-font: 'Sarina';
             width: 30%;
             height: 260px !important;
             border-radius: 30px !important;
+            
     
-            .emoji {
+           .emoji-wrap {
+             .emoji {
                 font-size: 4rem !important;
                 top: -55px !important;
+           }
            }
     
             .stars {

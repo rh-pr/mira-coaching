@@ -1,4 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
 
 import consultImg from '../../assets/img/prof/beratung.jpg';
 import workshopImg from '../../assets/img/prof/workshop.jpg';
@@ -10,17 +14,41 @@ const imags = [consultImg, workshopImg, teambuildImg];
 
 function Offers() {
  const [openedIndex, setOpenedIndex] = useState<number | null>(null);
+ 
+ const controls = useAnimation();
+ const [ref, inView] = useInView({ triggerOnce: true })
+ 
+ useEffect(() => {
+  if (inView) {
+    controls.start('visible')
+  }
+ }, [inView, controls])
 
   return (
     <div className="offers">
       <h1>Professionelle Unterstützung für Ihre Teams</h1>
       <div className={`offers-cards`}>
         {profOffers && profOffers.map((offer, ind) =>   
-          <OffersCard  key={`off-${ind}`}  
-                       data={{img: imags[ind], name: offer.name, offers: offer.offers}} 
-                       isOpen = {openedIndex === ind}
-                       showMore={() => setOpenedIndex(ind)}
-                       hideMore={() => setOpenedIndex(null)} />)}
+        <motion.div 
+          className='offer-wrap'
+          ref={ref}
+          initial='hidden'
+          animate={controls}
+          variants={{
+            hidden: {opacity: 0, y: 60 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 1.5, delay: (ind * 300 + 600) / 1000 }
+            }
+          }}>
+              <OffersCard  key={`off-${ind}`}  
+                                    data={{img: imags[ind], name: offer.name, offers: offer.offers}} 
+                                    isOpen = {openedIndex === ind}
+                                    showMore={() => setOpenedIndex(ind)}
+                                    hideMore={() => setOpenedIndex(null)} />
+        </motion.div>
+         )}
       </div>
     </div>
   )
