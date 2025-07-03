@@ -25,4 +25,6 @@ export type ContextType = {
     setIsWritingNewReview: React.Dispatch<React.SetStateAction<boolean>>;
     sendedMsg: boolean,
     setSendedMsg: React.Dispatch<React.SetStateAction<boolean>>;
+    sendReview: boolean
+    setSendReview: React.Dispatch<React.SetStateAction<boolean>>
 }

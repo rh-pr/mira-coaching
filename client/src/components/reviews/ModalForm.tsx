@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { MainContext } from "../../context/MainContext";
-import { InputGroup } from "react-bootstrap";
 
 function ModalForm() {
     const emojies = [ '😠', '😔',  '😐', '😄', '🤗'];
@@ -9,6 +8,7 @@ function ModalForm() {
 
     const handleReview = () => {
         console.log('hi'); 
+        context?.setSendReview(true);
         context?.setIsWritingNewReview(false);
     }
 
@@ -46,7 +46,7 @@ function ModalForm() {
             <label htmlFor="msg">Ihre Bewertung</label>
             <textarea name="msg" id="msg"></textarea>
             <div className="btn">
-                <button type="submit">Senden</button>
+                <button type="submit" onClick={() => handleReview()}>Senden</button>
                 <button onClick={() => closeForm()}>Schließen</button>
             </div>
            

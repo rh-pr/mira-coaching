@@ -5,7 +5,8 @@ export const MainContext = createContext<ContextType | null>(null);
 
 export const MainContextProvider = ({ children }: { children: ReactNode }) => {
 	const [isWritingNewReview, setIsWritingNewReview] = useState<boolean>(false);
-	const [sendedMsg, setSendedMsg] = useState<boolean>(false)
+	const [sendedMsg, setSendedMsg] = useState<boolean>(false);
+	const [sendReview, setSendReview] = useState<boolean>(false)
 
 	return (
 		<MainContext.Provider
@@ -13,7 +14,9 @@ export const MainContextProvider = ({ children }: { children: ReactNode }) => {
 				isWritingNewReview,
                 setIsWritingNewReview,
 				sendedMsg,
-				setSendedMsg
+				setSendedMsg,
+				sendReview,
+				setSendReview
 			}}
 		>
 			{children}

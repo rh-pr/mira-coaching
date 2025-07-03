@@ -8,7 +8,7 @@ import { reviews } from '../constants/main'
 import ContactForm from "../components/home/ContactForm";
 import { useContext, useEffect } from "react";
 import { MainContext } from "../context/MainContext";
-import ResponseMsg from "../components/home/ResponseMsg";
+import ResponseMsg from "../components/common/ResponseMsg";
 
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from "react-intersection-observer";
@@ -29,7 +29,7 @@ const controls = useAnimation();
     <div className='home' id="home" lang="de">
       {/* {context?.sendedMsg && <ResponseMsg />} */}
       <div className="modal-wrap">
-         {context?.sendedMsg && <ResponseMsg />}
+         {context?.sendedMsg && <ResponseMsg status={false}/>}
       </div>
       <Main />
       <Offers />

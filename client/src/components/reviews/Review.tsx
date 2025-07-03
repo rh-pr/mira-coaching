@@ -3,7 +3,6 @@ import { ReviewType } from '../../types/main';
 function Review({rev}:{rev: ReviewType}) {
     const emojies = [ '😠', '😔',  '😐', '😄', '🤗'];
 
-
   return (
     <div className='review'>
         <p className='emoji'>{emojies[rev.note-1]}</p>
