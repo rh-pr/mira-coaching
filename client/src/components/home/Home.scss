@@ -536,6 +536,7 @@ $sarina-font: 'Sarina';
         width: 100vw;
         height: 100vh;
         padding: 40px;
+        background-color: rgba(128, 128, 128, 0.4);
 
         .content{
             background-color: #fff;
@@ -544,9 +545,10 @@ $sarina-font: 'Sarina';
             display: flex;
             flex-direction: column;
             padding-left: 10px;
+            padding-right: 10px;
             justify-content: center;
             align-items: center;
-            width: 40vw;
+            width: 60vw;
             height: 40vh;
 
             h1 {
@@ -1044,6 +1046,14 @@ $sarina-font: 'Sarina';
         .figure-wrap {
              width: 40%;
              height: 90%;
+        }
+    }
+
+    .modal-wrap {
+        .modal {
+            .content {
+                width: 50vw;
+            }
         }
     }
 }

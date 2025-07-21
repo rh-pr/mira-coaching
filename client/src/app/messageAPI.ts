@@ -4,7 +4,7 @@ const baseUrl = import.meta.env.VITE_URL || 'http://localhost:3000/api';
 
 export const sendMsg = async (msg: KontaktDataType) =>{
     try {
-        return await fetch(`${baseUrl}/sendMsg`, {
+        const response =  await fetch(`${baseUrl}/sendMsg`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -12,8 +12,15 @@ export const sendMsg = async (msg: KontaktDataType) =>{
             body: JSON.stringify(msg)
         });
 
+         if (!response.ok) {
+            console.error('Server error:', response.status, response.statusText);
+            return false;
+        }
+
+        return true;
+
     } catch (err) {
         console.error('Error sendign message: ', err);
-        return null
+        return false;
     }
 }

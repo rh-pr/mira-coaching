@@ -29,7 +29,7 @@ const controls = useAnimation();
     <div className='home' id="home" lang="de">
       {/* {context?.sendedMsg && <ResponseMsg />} */}
       <div className="modal-wrap">
-         {context?.sendedMsg && <ResponseMsg status={false}/>}
+         {context?.sendedMsg && <ResponseMsg/>}
       </div>
       <Main />
       <Offers />

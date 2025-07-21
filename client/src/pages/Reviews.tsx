@@ -28,7 +28,7 @@ function Reviews() {
   return (
     <div className='reviews'>
       <div className="modal-wrap">
-            {resMsg && <ResponseMsg status={false}/>}
+            {resMsg && <ResponseMsg />}
       </div>
 
       {reviews && reviews.map((rev: ReviewType, ind: number) => <Review key={`review-${ind}`} rev={rev} />)}

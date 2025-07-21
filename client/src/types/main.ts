@@ -16,9 +16,10 @@ export type KontaktDataType = {
     fname: string,
     lname: string,
     email: string,
-    title: string,
+    inter: string,
     msg: string
 }
+
 
 export type ContextType = {
     isWritingNewReview: boolean,
@@ -26,5 +27,7 @@ export type ContextType = {
     sendedMsg: boolean,
     setSendedMsg: React.Dispatch<React.SetStateAction<boolean>>;
     sendReview: boolean
-    setSendReview: React.Dispatch<React.SetStateAction<boolean>>
+    setSendReview: React.Dispatch<React.SetStateAction<boolean>>;
+    sendingStatus: boolean | null
+    setSendingStatus: React.Dispatch<React.SetStateAction<boolean | null>>;
 }
