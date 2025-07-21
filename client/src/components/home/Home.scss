@@ -71,7 +71,6 @@ $sarina-font: 'Sarina';
                 width: 110%;
                 height: 100%;
                 border-radius: 100%;
-                // margin-left: 10vw;
                 object-fit: cover;
                 object-position: 40% 30%;
                 transition: transform 0.5s ease-in-out;
@@ -509,6 +508,7 @@ $sarina-font: 'Sarina';
         height: 90%;
         background-color: red;
         overflow: hidden;
+        border-radius: 10px;
         
         .figure {
             background-image: url('../../assets//img/contact.jpg');
@@ -518,6 +518,7 @@ $sarina-font: 'Sarina';
             height: 100%;
             box-shadow: inset  0 0 20px 20px white;
             transition: all 1.5s;
+
 
             &:hover {
                 transform: scale(1.5);
