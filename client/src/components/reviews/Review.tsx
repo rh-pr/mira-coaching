@@ -12,7 +12,7 @@ function Review({rev}:{rev: ReviewType}) {
                 {emojies.map((_, ind: number) => ind < rev.note ? <p key={`notes-${ind}`} className='star'>&#x2605;</p> : <p key={`notes-${ind}`} className='star'> &#x2606;</p>)}
             </div>
             <div className='rev-msg'>
-                <p>{rev.content}</p>
+                <p>{rev.msg}</p>
             </div>
         </div>
     </div>

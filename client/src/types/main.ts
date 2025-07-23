@@ -4,13 +4,26 @@ export type OffersCardType = {
     offers: string[]
 }
 
+// export type ReviewType = {
+//     id: string,
+//     note: number;
+//     fname: string, 
+//     lname: string,
+//     content: string
+// }
+
 export type ReviewType = {
     id: string,
-    note: number;
     fname: string, 
     lname: string,
-    content: string
+    msg: string,
+    email: string,
+    eventLoc: string,
+    radio: string,
+    note: number,
+
 }
+
 
 export type KontaktDataType = {
     fname: string,
@@ -30,4 +43,6 @@ export type ContextType = {
     setSendReview: React.Dispatch<React.SetStateAction<boolean>>;
     sendingStatus: boolean | null
     setSendingStatus: React.Dispatch<React.SetStateAction<boolean | null>>;
+    newReview: ReviewType | null,
+    setNewReview: React.Dispatch<React.SetStateAction<ReviewType | null>>;
 }

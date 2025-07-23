@@ -16,7 +16,7 @@ function ResponseMsg() {
             {context?.sendingStatus === null && <p>Schiken...</p>}
             {context?.sendingStatus && <p>Klicken Sie auf den Link in der E-Mail, um Ihre Adresse zu bestätigen und Nachricht zu senden.</p>}
             {context?.sendingStatus === false && <p>Hmmm...Etwas geht schlecht. Versuch bitte noch mal!</p>}
-            <button className="resBtn" onClick={handleClick}>Ok</button>
+            {context?.sendingStatus !== null && <button className="resBtn" onClick={handleClick}>Ok</button>}
         </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState } from 'react';
-import { ContextType } from '../types/main';
+import { ContextType, ReviewType } from '../types/main';
 
 export const MainContext = createContext<ContextType | null>(null);
 
@@ -8,6 +8,7 @@ export const MainContextProvider = ({ children }: { children: ReactNode }) => {
 	const [sendedMsg, setSendedMsg] = useState<boolean>(false);
 	const [sendReview, setSendReview] = useState<boolean>(false);
 	const [sendingStatus, setSendingStatus] = useState<boolean | null>(null);
+	const [newReview, setNewReview] = useState<ReviewType | null>(null);
 
 	return (
 		<MainContext.Provider
@@ -19,7 +20,9 @@ export const MainContextProvider = ({ children }: { children: ReactNode }) => {
 				sendReview,
 				setSendReview, 
 				sendingStatus,
-				setSendingStatus
+				setSendingStatus,
+				newReview,
+				setNewReview
 			}}
 		>
 			{children}

@@ -1,8 +1,9 @@
 import { ReviewType } from '../types/main'
+import { reviews } from '../constants/main';
 
 const baseUrl = import.meta.env.VITE_URL || 'http://localhost:3000/api';
 
-export const sendReview = async (review: ReviewType) =>{
+export const addReview = async (review: ReviewType) =>{
     try {
         return await fetch(`${baseUrl}/sendReview`, {
             method: 'POST',
@@ -20,14 +21,22 @@ export const sendReview = async (review: ReviewType) =>{
 
 export const getReviews = async () => {
     try {
-        return await fetch (`${baseUrl}/getReviews`, {
+        const data =  await fetch (`${baseUrl}/getReviews`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }
         });
+
+        if (!data) {
+            throw Error('Error fetching reviews: ');
+        }
+
+        return data.json();
+        
     } catch (err) {
-        console.error('Error fetching reviewsL ', err);
-        return null;
+        console.error('Error fetching reviews: ', err);
+        // return null;
+        return reviews;
     }
 }

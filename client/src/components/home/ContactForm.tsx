@@ -1,17 +1,12 @@
 import { useContext, useState } from "react";
 import { MainContext } from "../../context/MainContext"
-import { sendFormData } from "../../services/messageService";
+import { sendMsg } from "../../api/messageAPI";
+import { messagePlaceholder } from "../../constants/main";
 
 function ContactForm() {
 
   const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
-  const [formData, setFormData] = useState({
-    fname: '',
-    lname: '',
-    email: '',
-    inter: '',
-    msg: ''
-  });
+  const [formData, setFormData] = useState(messagePlaceholder);
   const [formStatus, setFormStatus] = useState<boolean>(true);
   
 
@@ -22,24 +17,17 @@ function ContactForm() {
     e.preventDefault();
 
     setFormStatus(false);
-    console.log(formData)
 
     context?.setSendingStatus(null);
     context?.setSendedMsg(true);  
 
-    const sendResponse = await sendFormData(formData);
+    const sendResponse = await sendMsg(formData);
 
     if (!sendResponse) {
       context?.setSendingStatus(false);
     } else {
       context?.setSendingStatus(true);
-      setFormData({
-        fname: '',
-        lname: '',
-        email: '',
-        inter: '',
-        msg: ''
-      });
+      setFormData(messagePlaceholder);
     }
 
     setFormStatus(true);

@@ -23,7 +23,7 @@ function ReviewCard({rev}: {rev: ReviewType}) {
             <span> {rev.lname}</span>
         </div>
         <div className='rev-cont'>
-            <p>{rev.content}</p>
+            <p>{rev.msg}</p>
         </div>
     </div>
   )
