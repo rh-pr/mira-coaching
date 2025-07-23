@@ -10,6 +10,8 @@ export const MainContextProvider = ({ children }: { children: ReactNode }) => {
 	const [sendingStatus, setSendingStatus] = useState<boolean | null>(null);
 	const [newReview, setNewReview] = useState<ReviewType | null>(null);
 
+	const [reviews, setReviews] = useState<ReviewType[] | null>(null);
+
 	return (
 		<MainContext.Provider
 			value={{
@@ -22,7 +24,9 @@ export const MainContextProvider = ({ children }: { children: ReactNode }) => {
 				sendingStatus,
 				setSendingStatus,
 				newReview,
-				setNewReview
+				setNewReview,
+				reviews,
+				setReviews,
 			}}
 		>
 			{children}

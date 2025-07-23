@@ -10,7 +10,7 @@ import { getReviews } from '../api/reviewsAPI';
 
 function Reviews() {
   const [resMsg, setResMsg] = useState<boolean>(false);
-  const [reviews, setReviews ] = useState<ReviewType[] | null>(null);
+  // const [reviews, setReviews ] = useState<ReviewType[] | null>(null);
 
   const context = useContext(MainContext);
 
@@ -22,7 +22,8 @@ function Reviews() {
         if (context && context.sendReview ) {
              setResMsg(true);
              if (context?.newReview) {
-                setReviews(prevReviews => [...(prevReviews || []), context.newReview!]);
+                // setReviews(prevReviews => [...(prevReviews || []), context.newReview!]);
+                context?.setReviews(prevReviews => [...(prevReviews || []), context.newReview!]);
               }
 
          } else {
@@ -35,11 +36,11 @@ function Reviews() {
       const fetchReviews = async () => {
         const data = await getReviews();
         if (data) {
-          setReviews(data);
+          // setReviews(data);
+          context?.setReviews(data);
         }
       }
       fetchReviews();
-      console.log('reviews', reviews)
     }, [])
 
 
@@ -49,8 +50,8 @@ function Reviews() {
       <div className="modal-wrap">
             {resMsg && <ResponseMsg />}
       </div>
-      {!reviews && <p className=''>Es gibt noch keine Bewertung....</p>}
-      {reviews && reviews.map((rev: ReviewType, ind: number) => <Review key={`review-${ind}`} rev={rev} />)}
+      {!context?.reviews && <p className=''>Lade Bewertungen...</p>}
+      {context?.reviews && context?.reviews.map((rev: ReviewType, ind: number) => <Review key={`review-${ind}`} rev={rev} />)}
       <button className='position-fixed bottom-4 end-4 fst-italic' onClick={() => openReviewForm()}><p>+</p></button>
     </div>
   )

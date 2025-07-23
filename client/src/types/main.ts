@@ -45,4 +45,6 @@ export type ContextType = {
     setSendingStatus: React.Dispatch<React.SetStateAction<boolean | null>>;
     newReview: ReviewType | null,
     setNewReview: React.Dispatch<React.SetStateAction<ReviewType | null>>;
+    reviews: ReviewType[] | null,
+    setReviews: React.Dispatch<React.SetStateAction<ReviewType[] | null>>;
 }
