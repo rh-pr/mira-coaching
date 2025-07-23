@@ -1,46 +1,14 @@
-import { useContext, useState } from "react";
-import { MainContext } from "../../context/MainContext";
-import { ReviewType } from "../../types/main";
-import { addReview } from "../../api/reviewsAPI";
-import { emojies, reviewPlaceholder } from "../../constants/main";
-
+import { emojies } from "../../constants/main";
+import { useReviewForm } from "../../hooks/useReviewForm";
 
 function ModalForm() {
 
-    const [formData, setFormData ] = useState<ReviewType>(reviewPlaceholder);
-
-    const context = useContext(MainContext);
-
-    const handleReview = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        
-        context?.setSendReview(true);
-        context?.setIsWritingNewReview(false);
-
-        const sendReview = await addReview(formData);
-
-        if (!sendReview) {
-            context?.setSendingStatus(false);
-        } else {
-            context?.setSendingStatus(true);
-            setFormData(reviewPlaceholder);
-        }
-    }
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        const numericValue = e.target.name === 'note' ? parseInt(value) : 0;
-    
-        setFormData(prevData => ({
-            ...prevData,
-            [name]: value,
-            radio: emojies[numericValue - 1] 
-        }));
-    }
-
-    const closeForm = () => {
-        context?.setIsWritingNewReview(false);
-    }
+   const {
+    formData, 
+    handleChange,
+    handleReview,
+    closeForm
+   } = useReviewForm();
 
   return (
     <div className="modal-form ">
@@ -50,6 +18,7 @@ function ModalForm() {
                    className="" 
                    id="fname" 
                    name="fname" 
+                   required
                    value={formData.fname}
                    onChange={handleChange}/>
             <label htmlFor="lname">Nachname</label>
@@ -57,6 +26,7 @@ function ModalForm() {
                    className="" 
                    id="lname" 
                    name="lname" 
+                   required
                    value={formData.lname}
                    onChange={handleChange}/>
             <label htmlFor="email">Email</label>
@@ -64,6 +34,7 @@ function ModalForm() {
                    className="" 
                    id="email" 
                    name="email" 
+                   required
                    value={formData.email}
                    onChange={handleChange}/>
             <label htmlFor="eventLoc">Wo haben wir uns getroffen</label>
@@ -71,11 +42,12 @@ function ModalForm() {
                    className="" 
                    id="eventLoc" 
                    name="eventLoc" 
+                   required
                    value={formData.eventLoc}
                    onChange={handleChange}/>
             <label htmlFor="inter">Teile deine Erfahrung</label>
             {/* <InputGroup> */}
-            <fieldset radioGroup="note" 
+            <fieldset radioGroup="note"
                       className="radio-group">
                 <input type="radio" 
                        name="note" 
@@ -113,11 +85,12 @@ function ModalForm() {
             <label htmlFor="msg">Ihre Bewertung</label>
             <textarea name="msg" 
                       id="msg"
+                      required
                       value={formData.msg}
                       onChange={handleChange}></textarea>
             <div className="btn">
-                <button type="submit">Senden</button>
                 <button onClick={() => closeForm()}>Schließen</button>
+                <button type="submit">Senden</button>
             </div>
            
 

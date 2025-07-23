@@ -15,7 +15,7 @@ export const addReview = async (review: ReviewType) =>{
 
     } catch (err) {
         console.error('Error sendign reiview: ', err);
-        return null
+        return null;
     }
 }
 
