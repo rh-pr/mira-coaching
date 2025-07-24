@@ -12,10 +12,9 @@ const messageSchema = new Schema({
     email: {
         type: String,
         require: true,
-        unique: true,
         
     },
-    Interess: {
+    interess: {
         type: String,
         required: true,
     },
