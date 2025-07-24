@@ -4,7 +4,7 @@ const baseUrl = import.meta.env.VITE_URL || 'http://localhost:3000/api';
 
 export const sendMsg = async (msg: KontaktDataType) =>{
     try {
-        const response =  await fetch(`${baseUrl}/sendMsg`, {
+        const response =  await fetch(`${baseUrl}/message/sendMsg`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

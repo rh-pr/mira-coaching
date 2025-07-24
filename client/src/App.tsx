@@ -10,6 +10,7 @@ import Reviews from "./pages/Reviews";
 import { useContext } from "react";
 import { MainContext } from "./context/MainContext";
 import ModalForm from "./components/reviews/ModalForm";
+import Confirmation from "./pages/Confirmation";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/reviews" element={<Reviews />} />
+        <Route path="/confirm" element={<Confirmation />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />

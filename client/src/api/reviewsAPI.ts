@@ -5,7 +5,7 @@ const baseUrl = import.meta.env.VITE_URL || 'http://localhost:3000/api';
 
 export const addReview = async (review: ReviewType) =>{
     try {
-        return await fetch(`${baseUrl}/sendReview`, {
+        return await fetch(`${baseUrl}/reviews/postReview`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ export const addReview = async (review: ReviewType) =>{
 
 export const getReviews = async () => {
     try {
-        const data =  await fetch (`${baseUrl}/getReviews`, {
+        const data =  await fetch (`${baseUrl}/reviews`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
