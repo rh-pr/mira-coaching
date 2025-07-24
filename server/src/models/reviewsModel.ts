@@ -1,3 +1,4 @@
+import { required } from 'joi';
 import { Schema, model } from 'mongoose';
 
 const reviewsSchema = new Schema({
@@ -12,13 +13,18 @@ const reviewsSchema = new Schema({
     email: {
         type: String,
         require: true,
-        unique: true,
         
     },
     know_from: {
         type: String,
         required: true,
     },
+
+    emoji: {
+        type: String,
+        required: true,
+    },
+
     rate: {
         type: Number,
         required: true,

@@ -1,11 +1,12 @@
 import nodemailer from 'nodemailer';
 import {SendConfirmationEmailParams } from '../types/confirmation';
 import emailConfig  from '../config/mail';
+import mainConfig from '../config/index';
 
 export async function sendConfirmationEmail(params: SendConfirmationEmailParams) {
     const transporter = nodemailer.createTransport(emailConfig);
 
-    const confirmationLink = `https://yourdomain.com/confirm?token=${params.token}`;
+    const confirmationLink = `${mainConfig.baseUrl}/confirm?token=${params.token}?type=${params.type}`;
 
     const mailOptions = {
         from: emailConfig.auth.user,

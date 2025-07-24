@@ -24,9 +24,10 @@ export const sendConfirmMsg = async (req: Request, res: Response) => {
             token: savedMsg.token,
             fname: savedMsg.fname,
             lname: savedMsg.lname,
+            type: 'message'
         });
 
-         res.status(200).json({ message: `Confirmation message sent to the ${req.body}` });
+         res.status(200).json({ message: `success` });
 
         console.log(req.body)
     } catch (err)  {
