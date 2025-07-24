@@ -11,7 +11,9 @@ export const useReviews = (
     const fetchReviews = async () => {
       if (!context?.reviews) {
         const data = await getReviews();
-        if (data) context?.setReviews(data);
+
+
+        if (data) context?.setReviews(data.data);
       }
     };
 

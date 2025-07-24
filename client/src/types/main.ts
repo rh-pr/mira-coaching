@@ -13,7 +13,7 @@ export type OffersCardType = {
 // }
 
 export type ReviewType = {
-    id: string,
+    _id: string,
     fname: string, 
     lname: string,
     msg: string,

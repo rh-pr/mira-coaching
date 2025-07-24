@@ -31,8 +31,8 @@ export const getReviews = async () => {
         if (!data) {
             throw Error('Error fetching reviews: ');
         }
-
-        return data.json();
+        
+        return  data.json();
         
     } catch (err) {
         console.error('Error fetching reviews: ', err);
