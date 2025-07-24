@@ -11,12 +11,14 @@ export const sendConfirmMsg = async (req: Request, res: Response) => {
             userMsg.inter.length <= 0 ||
             userMsg.msg.length <= 0
         ) {
-             res.status(400).json({ error: 'Invalid input. All fields are required.' });
+            res.status(400).json({ error: 'Invalid input. All fields are required.' });
+            return;
         }
         const savedMsg = await saveMsgDB(userMsg);
         
         if (!savedMsg) {
-            res.status(400).json({error: 'Data ware not saved...'})
+            res.status(400).json({error: 'Data ware not saved...'});
+            return;
         }
 
         sendConfirmationEmail({

@@ -2,13 +2,27 @@ import { Request, Response } from "express"
 import { retriveReviewDB, saveReviewDB } from "../services/reviewServices";
 import { sendConfirmationEmail } from "../services/emailServices";
 
-export const  getReviews = (req:  Request, res: Response) => {
+export const  getReviews = async (req:  Request, res: Response) => {
     try {
-        const reviews = retriveReviewDB();
+        const reviews = await retriveReviewDB();
+
         if (!reviews) {
-            res.status(400).json({error: 'Failed...'})
+            res.status(400).json({error: 'Failed...'});
+            return;
         }
-        res.status(200).json({message: 'success', data: reviews})
+
+        const modifiedReviews = reviews.map((review) => ({
+            id: review._id,
+            fname: review.fname,
+            lname: review.lname,
+            email: review.email,
+            msg: review.review,
+            eventLoc: review.know_from,
+            note: review.rate,
+            radio: review.emoji
+        }));
+
+        res.status(200).json({message: 'success', data: modifiedReviews})
 
     } catch (err) {
         console.error('Cannot retrieve reviews from database:', err);
@@ -29,12 +43,14 @@ export const  postReview = async (req:  Request, res: Response) => {
             userReview.note <= 0
         ) {
             res.status(400).json({ error: 'Invalid input. All fields are required.' });
+            return;
         }
 
         const review = await saveReviewDB(userReview);
 
         if (!review) {
-            res.status(400).json({error: 'Failed...'})
+            res.status(400).json({error: 'Failed...'});
+            return;
         }
 
         sendConfirmationEmail({
@@ -44,7 +60,6 @@ export const  postReview = async (req:  Request, res: Response) => {
                     lname: userReview.lname,
                     type: 'review'
                 });
-        
         
         res.status(200).json({message: 'success', data: review})
 

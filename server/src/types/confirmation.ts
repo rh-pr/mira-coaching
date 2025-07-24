@@ -1,10 +1,11 @@
 export interface SendConfirmationEmailParams {
   toEmail: string;
-  token: string;
-  type: string
+  token?: string;
+  type?: string
   fname?: string;
   lname?: string,
   content?: string,
+  interess?: string
 }
 
 export type CommonFields = {
