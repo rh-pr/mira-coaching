@@ -36,6 +36,28 @@ export const profOffers = [
     },
 ];
 
+export const pathNames = [
+    {
+        ind: 0,
+        path: 'home#home'
+    },
+     {
+        ind: 0,
+        path: 'home'
+    },
+    {
+        ind: 0,
+        path: 'confirm'
+    },
+    {
+        ind: 1,
+        path: 'home#aboutMe'
+    },
+    {
+        ind: 2,
+        path: 'reviews'
+    }
+]
 export const emojies = [ '😠', '😔',  '😐', '😄', '🤗'];
 
 export const reviewPlaceholder = {

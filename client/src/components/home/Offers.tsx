@@ -30,6 +30,7 @@ function Offers() {
       <div className={`offers-cards`}>
         {profOffers && profOffers.map((offer, ind) =>   
         <motion.div 
+          key={`off-${ind}`}  
           className='offer-wrap'
           ref={ref}
           initial='hidden'
@@ -42,11 +43,10 @@ function Offers() {
               transition: { duration: 1.5, delay: (ind * 300 + 600) / 1000 }
             }
           }}>
-              <OffersCard  key={`off-${ind}`}  
-                                    data={{img: imags[ind], name: offer.name, offers: offer.offers}} 
-                                    isOpen = {openedIndex === ind}
-                                    showMore={() => setOpenedIndex(ind)}
-                                    hideMore={() => setOpenedIndex(null)} />
+              <OffersCard  data={{img: imags[ind], name: offer.name, offers: offer.offers}} 
+                          isOpen = {openedIndex === ind}
+                          showMore={() => setOpenedIndex(ind)}
+                          hideMore={() => setOpenedIndex(null)} />
         </motion.div>
          )}
       </div>

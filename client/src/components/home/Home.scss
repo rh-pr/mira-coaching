@@ -110,7 +110,6 @@ $sarina-font: 'Sarina';
 
     .offers-cards {
        width: 100%;
-       padding: 0 20px;
        display: flex;
        justify-content: space-around;
        padding-top: 20px;
@@ -580,8 +579,6 @@ $sarina-font: 'Sarina';
     }
 }
 
-
-
 @media (min-width: 768px){
     .main {
         height:  auto;
@@ -785,7 +782,6 @@ $sarina-font: 'Sarina';
         }
     }
 }
-
 
 @media (min-width: 1025px){
     .main {

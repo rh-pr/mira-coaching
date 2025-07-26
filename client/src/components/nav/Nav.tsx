@@ -1,25 +1,31 @@
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import './Nav.scss';
 import { useNavigate } from 'react-router-dom';
-import { div } from 'framer-motion/client';
 import { scrollToHash } from '../../utilits/scrollToHash';
 import { TextSplit } from '../common/TextSplit';
+import { pathNames } from '../../constants/main';
+
+import Collapse from 'bootstrap/js/dist/collapse';
+
 
 function Nav() {
-  const [isActive, seetIsActive] = useState<number>(0);
+  const [isActive, setIsActive] = useState<number>(0);
+  const collapseRef =  useRef<HTMLDivElement | null>(null);
+  const href = window.location.href.split('/');
 
   const navigate = useNavigate();
 
   const handleClick = useCallback((num: number, pathNav: string) => {
-    seetIsActive(num);
+    setIsActive(num);
   
      window.scrollTo({ top: 0, behavior: 'instant' }); 
     
     const [path, hash] = pathNav.split('#');
+    const navPath = hash ? `/${path}#${hash}` : `/${path}`;
+    toggleMenu();
 
-    navigate(`/${path}`);
-
+    navigate(navPath);
     setTimeout(() => {
       if (hash) {
         scrollToHash(hash)
@@ -28,9 +34,18 @@ function Nav() {
     
   }, []);
 
+ const toggleMenu = () => {
+  if ( window.innerWidth < 992 && collapseRef.current) {
+    const bsCollapse = Collapse.getInstance(collapseRef.current) || new Collapse(collapseRef.current, { toggle: false });
+    bsCollapse.toggle();
+  }
+};
+
   useEffect(() => {
-    
-  })
+    const pathData = pathNames.filter( el => el.path === href[href.length - 1])
+    setIsActive(pathData[0].ind);
+  },[])
+
 
   return (
    <div className='navbar-container'>
@@ -38,10 +53,10 @@ function Nav() {
       <div className="container-fluid">
         <a className="navbar-brand fw-bold w-50 h-100" href="#"><TextSplit text='Dein Moment zur Verbesserung' hoverText='Bring dein Mut in der Welt' /></a>
         {/* <a className="navbar-brand fw-bold" href="#">Dein Moment zur Verbesserung</a> */}
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler" type="button" onClick={toggleMenu} aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse " id="navbarToggler">
+        <div className="collapse navbar-collapse bg-white px-3 " id="navbarToggler" ref={collapseRef}>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-end">
             <li className="nav-item " onClick={() => handleClick(0, 'home#home')}>
               <a onClick={(e:  React.MouseEvent<HTMLAnchorElement>) => e.preventDefault()}  className={`nav-link ${isActive === 0 ? 'active' : ''} fw-semibold`} aria-current="page" href="#">Startseite</a>
