@@ -19,6 +19,7 @@ export async function sendConfirmationEmail(params: SendConfirmationEmailParams)
             Vielen Dank für Ihre Registrierung! Bitte bestätigen Sie Ihre E-Mail-Adresse, indem Sie auf den folgenden Link klicken:</p>
 
             <p> <a href="${confirmationLink}" target="_blank">E-Mail bestätigen</a> </p>
+
             <p>Wenn Sie dies nicht angefordert haben, können Sie diese E-Mail2 einfach ignorieren. </p>
         `
     }
