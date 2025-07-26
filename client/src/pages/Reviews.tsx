@@ -8,6 +8,9 @@ import { MainContext } from '../context/MainContext';
 import ResponseMsg from '../components/common/ResponseMsg';
 import { useReviews } from '../hooks/useReviews';
 
+import animation from '../assets/animation/search.gif'
+import LoadingAnimation from '../components/reviews/LoadAnimation';
+
 function Reviews() {
   const [resMsg, setResMsg] = useState<boolean>(false);
 
@@ -24,7 +27,7 @@ function Reviews() {
       <div className="modal-wrap">
             {resMsg && <ResponseMsg />}
       </div>
-      {!context?.reviews ? <p className=''>Lade Bewertungen...</p> :
+      {!context?.reviews ?  <LoadingAnimation />:
        context?.reviews.map((rev: ReviewType, ind: number) => <Review key={`review-${ind}`} rev={rev} />)}
       <button className='position-fixed bottom-4 end-4 fst-italic' onClick={() => openReviewForm()}><p>+</p></button>
     </div>
