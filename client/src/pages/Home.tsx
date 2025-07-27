@@ -33,7 +33,7 @@ const controls = useAnimation();
   }
  }, [inView, controls, inViewForm])
 
- 
+
 
   return (
     <div className='home' id="home" lang="de">
@@ -46,7 +46,7 @@ const controls = useAnimation();
       <AboutMe />
       { reviews.length > 0 && <div className="reviews-small">
         <p><h3>Bewertungen</h3></p>
-        {context?.reviews?.slice(0,3).map((review: ReviewType) =><ReviewCard rev={review} /> )}
+        <div className={`d-flex ${reviews.length > 2 ? 'justify-content-around' : 'justify-contentt-start gap-5'}`}>{context?.reviews?.slice(0,3).map((review: ReviewType) =><ReviewCard rev={review} /> )}</div>
          <button className="nav-revs" onClick={() => navigate('/reviews')}>Mehr...</button>
       </div>}
       <div className="contact" id="contact">

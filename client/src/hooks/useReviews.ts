@@ -7,18 +7,18 @@ export const useReviews = (
  ) => {
   const context = useContext(MainContext);
 
-  useEffect(() => {
-    const fetchReviews = async () => {
-      if (!context?.reviews) {
-        const data = await getReviews();
+  // useEffect(() => {
+  //   const fetchReviews = async () => {
+  //     if (!context?.reviews) {
+  //       const data = await getReviews();
 
 
-        if (data) context?.setReviews(data.data);
-      }
-    };
+  //       if (data) context?.setReviews(data.data);
+  //     }
+  //   };
 
-    fetchReviews();
-  }, [context]);
+  //   fetchReviews();
+  // }, [context]);
 
 
   useEffect(() => {
