@@ -12,6 +12,8 @@ import ResponseMsg from "../components/common/ResponseMsg";
 
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from "react-intersection-observer";
+import { useNavigate } from "react-router-dom";
+import { ReviewType } from "../types/main";
 function Home() {
   const context = useContext(MainContext);
 
@@ -19,11 +21,19 @@ const controls = useAnimation();
  const [imgRef, inView] = useInView({ triggerOnce: true })
  const [formRef, inViewForm] = useInView({triggerOnce: true})
 
+ const navigate = useNavigate();
+
+ const reviews = context?.reviews ?? [];
+
+
+
  useEffect(() => {
   if (inView || inViewForm) {
     controls.start('visible')
   }
  }, [inView, controls, inViewForm])
+
+ 
 
   return (
     <div className='home' id="home" lang="de">
@@ -34,12 +44,11 @@ const controls = useAnimation();
       <Main />
       <Offers />
       <AboutMe />
-      <div className="reviews-small">
-       {reviews[0] && <ReviewCard rev={reviews[0]} />}
-       {reviews[1] && <ReviewCard rev={reviews[1]} />}
-       {reviews[2] && <ReviewCard rev={reviews[2]} />}
-       <button className="nav-revs">Mehr...</button>
-      </div>
+      { reviews.length > 0 && <div className="reviews-small">
+        <p><h3>Bewertungen</h3></p>
+        {context?.reviews?.slice(0,3).map((review: ReviewType) =><ReviewCard rev={review} /> )}
+         <button className="nav-revs" onClick={() => navigate('/reviews')}>Mehr...</button>
+      </div>}
       <div className="contact" id="contact">
         <motion.div 
           ref={formRef}

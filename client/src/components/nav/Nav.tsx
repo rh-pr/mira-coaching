@@ -42,9 +42,10 @@ function Nav() {
 };
 
   useEffect(() => {
-    const pathData = pathNames.filter( el => el.path === href[href.length - 1])
-    setIsActive(pathData[0].ind);
-  },[])
+    const pathData = pathNames.filter( el => href[href.length - 1].includes( el.path));
+    console.log(pathData)
+    setIsActive(pathData[pathData.length - 1].ind);
+  },[href])
 
 
   return (
@@ -68,7 +69,7 @@ function Nav() {
               <a onClick={(e:  React.MouseEvent<HTMLAnchorElement>) => e.preventDefault()} className={`nav-link ${isActive === 2 ? 'active' : ''} fw-semibold`} href=''>Bewertung</a>
             </li>
           </ul>
-          <button className="btn bg-#0E5A2A fw-semibold text-white " type="submit" onClick={() => handleClick(0, 'home#contact')}>Kontaktieren</button>
+          <button className="btn bg-#0E5A2A fw-semibold text-white " type="submit" onClick={() => handleClick(3, 'home#contact')}>Kontaktieren</button>
         
         </div>
       </div>

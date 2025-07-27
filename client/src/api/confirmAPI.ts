@@ -1,25 +1,3 @@
-// export const confirEmail = async () => {
-//     const baseUrl = import.meta.env.VITE_URL || 'http://localhost:3000/api';
-
-//     try {
-//         const response = await fetch(`${baseUrl}/confirm`, {
-//             method: 'GET',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//         });
-
-//         if (!response) {
-//             throw Error('Error fetching reviews: ');
-//         }
-
-//         return response.json();
-
-//     } catch (err) {
-//         console.error('Error sendign message: ', err);
-//         return false;
-//     }
-// }
 
 export const confirEmail = async () => {
     const baseUrl = import.meta.env.VITE_URL || 'http://localhost:3000/api';

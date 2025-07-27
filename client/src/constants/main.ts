@@ -41,6 +41,10 @@ export const pathNames = [
         ind: 0,
         path: 'home#home'
     },
+    {
+        ind: 0,
+        path: ''
+    },
      {
         ind: 0,
         path: 'home'
@@ -56,6 +60,10 @@ export const pathNames = [
     {
         ind: 2,
         path: 'reviews'
+    },
+    {
+        ind: 3,
+        path: 'home#contact'
     }
 ]
 export const emojies = [ '😠', '😔',  '😐', '😄', '🤗'];
