@@ -19,6 +19,7 @@ export const useReviewForm = () => {
       ...prevData,
       [name]: value,
       radio: emojies[numericValue - 1],
+      _id: '',
     }));
   };
 

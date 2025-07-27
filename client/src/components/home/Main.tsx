@@ -28,7 +28,7 @@ function Main() {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1}}
           transition={{ duration: 1.5}}>
-         <motion.img src={me} alt="me" />
+         <motion.img src={me} alt="me foto coach" />
         </motion.div>
     </div>
   )
