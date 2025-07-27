@@ -8,7 +8,6 @@ import { MainContext } from '../context/MainContext';
 import ResponseMsg from '../components/common/ResponseMsg';
 import { useReviews } from '../hooks/useReviews';
 
-import animation from '../assets/animation/search.gif'
 import LoadingAnimation from '../components/reviews/LoadAnimation';
 
 function Reviews() {

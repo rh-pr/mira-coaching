@@ -43,7 +43,6 @@ function Nav() {
 
   useEffect(() => {
     const pathData = pathNames.filter( el => href[href.length - 1].includes( el.path));
-    console.log(pathData)
     setIsActive(pathData[pathData.length - 1].ind);
   },[href])
 

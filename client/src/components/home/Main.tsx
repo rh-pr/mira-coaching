@@ -17,10 +17,11 @@ function Main() {
           initial={{ x: '-100%', opacity: 0 }}
           animate={{x: 0, opacity: 1 }}
           transition={{ duration: 1.5 }}>
-          <h1>Unlock Your <br /> Potential with <br /> Expert Coaching</h1>
-          <p>Unlock your potential with our professional coaching services, designed to enhance leadership
-              skills and drive personal and organizational growth. Our expert coaches offer tailored strategies to 
-              empower you to achieve your goals with confidence and precision.</p>
+          {/* <h1>Entfesseln Sie <br /> Ihr Potenzial  <br />  mit Experten-Coaching</h1> */}
+          <h1>Entfesseln <br /> Sie Ihr Potenzial <br /> Experten-Coaching</h1>
+          <p>Nutzen Sie unser professionelles Coaching, um Ihre Führungsfähigkeiten zu stärken
+             und Ihr persönliches sowie organisationales Wachstum voranzutreiben. Unsere Coaches 
+             bieten maßgeschneiderte Strategien, damit Sie Ihre Ziele selbstbewusst und präzise erreichen.</p>
           <button className="btn bg-#0E5A2A fw-semibold text-white" type="submit" onClick={() => scrollToForm()}>Kontaktieren</button>
         </motion.div>
         <motion.div className='img'

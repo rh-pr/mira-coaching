@@ -4,7 +4,6 @@ import Offers from "../components/home/Offers";
 import AboutMe from "../components/home/AboutMe";
 import ReviewCard from "../components/home/ReviewCard";
 
-import { reviews } from '../constants/main'
 import ContactForm from "../components/home/ContactForm";
 import { useContext, useEffect } from "react";
 import { MainContext } from "../context/MainContext";
@@ -37,7 +36,6 @@ const controls = useAnimation();
 
   return (
     <div className='home' id="home" lang="de">
-      {/* {context?.sendedMsg && <ResponseMsg />} */}
       <div className="modal-wrap">
          {context?.sendedMsg && <ResponseMsg/>}
       </div>
