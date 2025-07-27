@@ -30,8 +30,6 @@ export const sendConfirmMsg = async (req: Request, res: Response) => {
         });
 
          res.status(200).json({ message: `success` });
-
-        console.log(req.body)
     } catch (err)  {
         console.error('Cannot save data to database:', err);
         res.status(500).json({ error: 'Internal server error' });
