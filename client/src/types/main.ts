@@ -4,14 +4,6 @@ export type OffersCardType = {
     offers: string[]
 }
 
-// export type ReviewType = {
-//     id: string,
-//     note: number;
-//     fname: string, 
-//     lname: string,
-//     content: string
-// }
-
 export type ReviewType = {
     _id: string,
     fname: string, 
