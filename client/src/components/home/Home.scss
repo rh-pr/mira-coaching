@@ -794,7 +794,7 @@ $sarina-font: 'Sarina';
     }
 }
 
-@media (max-width: 1025px) and (orientation: landscape) {
+@media (max-width: 768px) and (orientation: landscape) {
     .main {
         height: 60vh ;
         justify-content: center;
@@ -1106,6 +1106,34 @@ $sarina-font: 'Sarina';
             .content {
                 width: 50vw;
             }
+        }
+    }
+}
+
+@media (max-width: 1025px) and (orientation: landscape) {
+   .main {
+        height: 60vh ;
+        justify-content: center;
+        align-items: center;
+        padding-left: 20px;
+
+        .text {
+            
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 0.8rem;
+            }
+
+           
+        }
+        .img {
+            width: 56%;
+            height: 60vh;
+           
         }
     }
 }
