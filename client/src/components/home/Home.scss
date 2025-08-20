@@ -794,6 +794,51 @@ $sarina-font: 'Sarina';
     }
 }
 
+@media (max-width: 1025px) and (orientation: landscape) {
+    .main {
+        height: 60vh ;
+        justify-content: center;
+        align-items: center;
+        padding-left: 20px;
+
+        .text {
+            width: 44%;
+            height: 50vh;
+            gap: 8px;
+
+            h1 {
+                font-size: 1.2rem;
+            }
+
+            p {
+                font-size: 0.5rem;
+            }
+
+           
+        }
+        .img {
+            width: 56%;
+            height: 60vh;
+           
+        }
+    }
+
+    .offers {
+        .offers-cards {
+            .offer-wrap {
+                .offer-card {
+                    .inner {
+                        h3 {
+                            font-size: 1.3rem;
+                            padding-top: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media (min-width: 1025px){
     .main {
         height:  calc(100vh - 80px);
@@ -1064,3 +1109,5 @@ $sarina-font: 'Sarina';
         }
     }
 }
+
+
